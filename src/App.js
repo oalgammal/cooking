@@ -63,40 +63,40 @@ function reGet(){
   return (
     <div className="App">
       <Routes>
-        <Route exact path='/' element={
+        <Route exact path='./' element={
             <AllRecipes recSelector={recSelector} recDelete={recDelete} recipes={list}/>
            }
         />        
-        <Route path='/viewrecipe' element={
+        <Route path='./viewrecipe' element={
               <RecipePage plate={plate} recDelete={recDelete}/>
               }
         />
-        <Route exact path='/delete' element={
+        <Route exact path='./delete' element={
           <div>
             <div>Deleted</div>
-            <Link className="go-back" to="/" onClick={()=>{reGet()}}>Go back to Home</Link>
+            <Link className="go-back" to="./" onClick={()=>{reGet()}}>Go back to Home</Link>
           </div>
         }
         />
-        <Route path='/addNew' element={
+        <Route path='./addNew' element={
               <AddRecipe list={list}/>
               }
         />
-        <Route exact path='/added' element={
+        <Route exact path='./added' element={
           <div>
             <div>Added successfully</div>
-            <Link className="go-back" to="/" onClick={()=>{reGet()}}>Go back to Home</Link>
+            <Link className="go-back" to="./" onClick={()=>{reGet()}}>Go back to Home</Link>
           </div>
         }
         />
-        <Route path='/editrecipe' element={
+        <Route path='./editrecipe' element={
               <EditRecipe  plate={plate} />
               }
         />
-        <Route exact path='/edited' element={
+        <Route exact path='./edited' element={
           <div>
             <div>Edited successfully</div>
-            <Link className="go-back" to="/" onClick={()=>{reGet()}}>Go back to Home</Link>
+            <Link className="go-back" to="./" onClick={()=>{reGet()}}>Go back to Home</Link>
           </div>
         }
         />
