@@ -29,7 +29,7 @@ function imagChange (event){
 }
 
 function editRec(e){
-		fetch('http://localhost:5000/editrecipe',{
+		fetch('https://stark-sierra-56547.herokuapp.com/editrecipe',{
 			method:'post',
 			headers:{'Content-Type':'application/json'},
 			body: JSON.stringify({

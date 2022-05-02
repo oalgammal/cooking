@@ -16,14 +16,10 @@ function App(props) {
   const [plate,setPlate] = useState({});
   const [list, setList] = useState([]);
 
-  // const loadRecipes=()=>{
-  //   console.log('2122')
-  //     return fetch('http://localhost:5000/')
-  //       .then(response => response.json())
-  // }
+
 
   useEffect(() => {
-    fetch('http://localhost:5000/')
+    fetch('https://stark-sierra-56547.herokuapp.com/')
         .then(response => response.json())
         .then(data=>setList(data))
 
@@ -42,7 +38,7 @@ function App(props) {
       )
     }
 function recDelete(data){
-    fetch('http://localhost:5000/delete',{
+    fetch('https://stark-sierra-56547.herokuapp.com/delete',{
       method:'post',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({"id":data})
@@ -52,7 +48,7 @@ function recDelete(data){
 
 function reGet(){
   setList([])
-  fetch('http://localhost:5000/')
+  fetch('https://stark-sierra-56547.herokuapp.com/')
         .then(response => response.json())
         .then(data=>setList(data))
 

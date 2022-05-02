@@ -13,25 +13,6 @@ const [idNew, setIdNew] = useState(0);
 
 
 let oldList= props.list
-// console.log(oldList)
-
-// const getNewId = useCallback( ()=>{
-// 	// console.log(props)
-// 	let x = 0 
-// 	oldList.map((item)=>{
-// 		if (item.id>x){
-// 			x = item.id
-// 		}
-// 		return null
-// 	})
-// 	x++
-// 	if (x>idNew){
-// 		console.log(x)
-// 		setIdNew(x)
-// 	}
-// 	// event.preventDefault()
-
-// })
 useEffect(() => {
     let x = 0 
 	oldList.map((item)=>{
@@ -65,7 +46,7 @@ function imagChange (event){
 }
 
 function addNew(e){
-		fetch('http://localhost:5000/addNew',{
+		fetch('https://stark-sierra-56547.herokuapp.com/addNew',{
 			method:'post',
 			headers:{'Content-Type':'application/json'},
 			body: JSON.stringify({
