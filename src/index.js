@@ -5,6 +5,7 @@ import App from './App';
 import Tachyons from 'tachyons';
 import {BrowserRouter} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
+import { createBrowserHistory } from 'history';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,10 @@ root.render(
   </BrowserRouter>
   </React.StrictMode>
 );
+export const history = createBrowserHistory({
+    basename: process.env.PUBLIC_URL
+});
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
