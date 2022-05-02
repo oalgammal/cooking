@@ -63,7 +63,7 @@ function reGet(){
   return (
     <div className="App">
       <Routes>
-        <Route exact path='./' element={
+        <Route exact path='./cooking' element={
             <AllRecipes recSelector={recSelector} recDelete={recDelete} recipes={list}/>
            }
         />        
