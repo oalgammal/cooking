@@ -56,7 +56,7 @@ function addNew(e){
 				image:imag,
 				id:idNew
 			})
-		}).then(navigate('./added'))
+		}).then(navigate('/added'))
 		
 			
 		e.preventDefault();

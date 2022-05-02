@@ -39,7 +39,7 @@ function editRec(e){
 				image:imag,
 				id:idNew
 			})
-		}).then(navigate('./edited'))
+		}).then(navigate('/edited'))
 		
 			
 		e.preventDefault();

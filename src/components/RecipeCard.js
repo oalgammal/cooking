@@ -7,8 +7,8 @@ function RecipeCard (props){
 		<p>{props.plate.title}</p>
 		<p>{props.plate.ingredients}</p>
 		<img alt={props.plate.title} src={props.plate.image} width="250rm" height="auto" /><br/>
-		<Link className="edit-sign" to="./viewrecipe" id={props.plate.id} onClick={()=>props.recSelector(props.plate.id)}>Details</Link><br/>
-		<Link className="delete-sign" to="./delete" _id={props.plate._id} onClick={()=>props.recDelete(props.plate.id)}>Delete</Link>
+		<Link className="edit-sign" to="/viewrecipe" id={props.plate.id} onClick={()=>props.recSelector(props.plate.id)}>Details</Link><br/>
+		<Link className="delete-sign" to="/delete" _id={props.plate._id} onClick={()=>props.recDelete(props.plate.id)}>Delete</Link>
 		</div>
 		)
 
