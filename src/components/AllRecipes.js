@@ -13,7 +13,7 @@ function AllRecipes(props){
 		)
 
 	})
-	}
+	}<br/>
 	<Link className="add-new" to="/addNew" >Add a new recipe</Link>
 	</div>
 	)

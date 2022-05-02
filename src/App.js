@@ -8,7 +8,7 @@ import { Routes, Route,Link } from 'react-router-dom'
 import AllRecipes from './components/AllRecipes.js';
 import RecipePage from './components/RecipePage.js';
 import AddRecipe from './components/AddRecipe.js';
-
+import EditRecipe from './components/EditRecipe.js';
 
 
 // loadRecipes()
@@ -71,7 +71,7 @@ function reGet(){
             <AllRecipes recSelector={recSelector} recDelete={recDelete} recipes={list}/>
            }
         />        
-        <Route path='/editrecipe' element={
+        <Route path='/viewrecipe' element={
               <RecipePage plate={plate} recDelete={recDelete}/>
               }
         />
@@ -83,8 +83,26 @@ function reGet(){
         }
         />
         <Route path='/addNew' element={
-              <AddRecipe reGet={reGet} plate={plate} list={list}/>
+              <AddRecipe list={list}/>
               }
+        />
+        <Route exact path='/added' element={
+          <div>
+            <div>Added successfully</div>
+            <Link className="go-back" to="/" onClick={()=>{reGet()}}>Go back to Home</Link>
+          </div>
+        }
+        />
+        <Route path='/editrecipe' element={
+              <EditRecipe  plate={plate} />
+              }
+        />
+        <Route exact path='/edited' element={
+          <div>
+            <div>Edited successfully</div>
+            <Link className="go-back" to="/" onClick={()=>{reGet()}}>Go back to Home</Link>
+          </div>
+        }
         />
       </Routes>
     </div>

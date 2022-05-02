@@ -1,52 +1,16 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-function AddRecipe (props) {
+function EditRecipe (props) {
 
 let navigate = useNavigate();
-const [title, setTitle] = useState('');
-const [ing, setIng] = useState('');
-const [rec, setRec] = useState('');
-const [imag, setImag] = useState('');
-const [idNew, setIdNew] = useState(0);
+const [title, setTitle] = useState(props.plate.title);
+const [ing, setIng] = useState(props.plate.ingredients);
+const [rec, setRec] = useState(props.plate.recipe);
+const [imag, setImag] = useState(props.plate.image);
+const [idNew] = useState(props.plate.id);
 
-
-let oldList= props.list
-// console.log(oldList)
-
-// const getNewId = useCallback( ()=>{
-// 	// console.log(props)
-// 	let x = 0 
-// 	oldList.map((item)=>{
-// 		if (item.id>x){
-// 			x = item.id
-// 		}
-// 		return null
-// 	})
-// 	x++
-// 	if (x>idNew){
-// 		console.log(x)
-// 		setIdNew(x)
-// 	}
-// 	// event.preventDefault()
-
-// })
-useEffect(() => {
-    let x = 0 
-	oldList.map((item)=>{
-		if (item.id>x){
-			x = item.id
-		}
-		return null
-	})
-	x++
-	if (x>idNew){
-		console.log(x)
-		setIdNew(x)
-	}
-
- },[oldList,idNew,setIdNew])
 
 function titleChange  (event){
 	setTitle(event.target.value)
@@ -64,8 +28,8 @@ function imagChange (event){
 	setImag(event.target.value)
 }
 
-function addNew(e){
-		fetch('http://localhost:5000/addNew',{
+function editRec(e){
+		fetch('http://localhost:5000/editrecipe',{
 			method:'post',
 			headers:{'Content-Type':'application/json'},
 			body: JSON.stringify({
@@ -75,11 +39,12 @@ function addNew(e){
 				image:imag,
 				id:idNew
 			})
-		}).then(navigate('/added'))
+		}).then(navigate('/edited'))
 		
 			
 		e.preventDefault();
 	}
+
 
 
 return(
@@ -88,10 +53,11 @@ return(
 			<main className="pa4 black-80">
 			  <form className="measure">
 			    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-			      <legend className="f3 fw6 ph0 mh0">Add New Recipe</legend>
+			      <legend className="f3 fw6 ph0 mh0">Edit {props.plate.title}</legend>
 			      <div className="mt3">
 			        <label className="db fw6 lh-copy f6" for="title">Title</label>
 			        <input 
+			        	value={title}
 			        	onChange = {titleChange}
 			        	className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="text" 
@@ -101,6 +67,7 @@ return(
 			      <div className="mv3">
 			        <label className="db fw6 lh-copy f6" for="ingredients">Ingredients</label>
 			        <input 
+			        	value={ing}
 			        	onChange= {ingChange}
 			        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="text" 
@@ -110,6 +77,7 @@ return(
 			      <div className="mv3">
 			        <label className="db fw6 lh-copy f6" for="recipe">Recipe</label>
 			        <input 
+			        	value={rec}
 			        	onChange = {recChange}
 			        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="text" 
@@ -119,6 +87,7 @@ return(
 			      <div className="mv3">
 			        <label className="db fw6 lh-copy f6" for="imageLink">Image Link</label>
 			        <input 
+			        	value={imag}
 			        	onChange = {imagChange}
 			        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="text" 
@@ -126,12 +95,12 @@ return(
 			        	id="imageLink"/>
 			      </div>
 			    </fieldset>
-			    <div className="">
+			    <div className="butedit">
 			      <input 
-			      	onClick={addNew} 
+			      	onClick={editRec} 
 			      	className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
 			      	type="submit" 
-			      	value="Add"/>
+			      	value="Edit"/>
 			    </div>
 			  </form>
 			</main>
@@ -143,4 +112,4 @@ return(
 }
 
 
-export default AddRecipe;
+export default EditRecipe;
